@@ -33,7 +33,7 @@ impl Read for FakeStdin {
         while self.pos < self.buf.len() {
             let ch = char::from(self.buf[self.pos]);
             self.pos +=  1;
-            if ch.is_whitespace() || ch == '\n' {
+            if ch == '\n' {
                 break;
             }
 
