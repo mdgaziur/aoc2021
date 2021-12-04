@@ -1,15 +1,15 @@
-use std::io::Read;
-use libaoc21::AOCDayPart;
 use libaoc21::fake_stdin::FakeStdin;
+use libaoc21::AOCDayPart;
+use std::io::Read;
 
 pub struct Part2 {
-    stdin: FakeStdin
+    stdin: FakeStdin,
 }
 
 impl Part2 {
     pub fn new(input: &str) -> Self {
         Self {
-            stdin: FakeStdin::new(input.as_bytes())
+            stdin: FakeStdin::new(input.as_bytes()),
         }
     }
 
@@ -23,14 +23,17 @@ impl Part2 {
         for input in &inputs {
             if input.chars().nth(idx).unwrap() == '1' {
                 one_count += 1;
-            }
-            else {
+            } else {
                 zero_count += 1;
             }
         }
 
         let mut temp = Vec::new();
-        let match_against = if one_count > zero_count || one_count == zero_count { '1' } else { '0' };
+        let match_against = if one_count > zero_count || one_count == zero_count {
+            '1'
+        } else {
+            '0'
+        };
         for input in &inputs {
             if input.chars().nth(idx).unwrap() == match_against {
                 temp.push(input.clone());
@@ -50,14 +53,17 @@ impl Part2 {
         for input in &inputs {
             if input.chars().nth(idx).unwrap() == '1' {
                 one_count += 1;
-            }
-            else {
+            } else {
                 zero_count += 1;
             }
         }
 
         let mut temp = Vec::new();
-        let match_against = if zero_count < one_count || zero_count == one_count { '0' } else { '1' };
+        let match_against = if zero_count < one_count || zero_count == one_count {
+            '0'
+        } else {
+            '1'
+        };
         for input in &inputs {
             if input.chars().nth(idx).unwrap() == match_against {
                 temp.push(input.clone());

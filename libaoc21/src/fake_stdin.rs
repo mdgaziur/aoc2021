@@ -1,4 +1,4 @@
-use std::io::{Read, Error, ErrorKind};
+use std::io::{Error, ErrorKind, Read};
 
 pub struct FakeStdin {
     buf: Vec<u8>,
@@ -32,8 +32,11 @@ impl Read for FakeStdin {
 
         while self.pos < self.buf.len() {
             let ch = char::from(self.buf[self.pos]);
-            self.pos +=  1;
+            self.pos += 1;
             if ch == '\n' {
+                if buf.len() == 0 {
+                    continue;
+                }
                 break;
             }
 

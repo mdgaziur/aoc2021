@@ -1,15 +1,15 @@
-use std::io::Read;
-use libaoc21::AOCDayPart;
 use libaoc21::fake_stdin::FakeStdin;
+use libaoc21::AOCDayPart;
+use std::io::Read;
 
 pub struct Part1 {
-    stdin: FakeStdin
+    stdin: FakeStdin,
 }
 
 impl Part1 {
     pub fn new(input: &str) -> Self {
         Self {
-            stdin: FakeStdin::new(input.as_bytes())
+            stdin: FakeStdin::new(input.as_bytes()),
         }
     }
 }
@@ -24,8 +24,7 @@ impl AOCDayPart for Part1 {
             for idx in 0..input.len() {
                 if input.chars().nth(idx).unwrap() == '0' {
                     zero_count[idx] += 1;
-                }
-                else {
+                } else {
                     one_count[idx] += 1;
                 }
             }
@@ -39,8 +38,7 @@ impl AOCDayPart for Part1 {
             if zero_count[idx] > one_count[idx] {
                 gamma_bits += "0";
                 epsilon_bits += "1";
-            }
-            else {
+            } else {
                 gamma_bits += "1";
                 epsilon_bits += "0";
             }

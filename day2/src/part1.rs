@@ -1,15 +1,15 @@
-use std::io::Read;
-use libaoc21::AOCDayPart;
 use libaoc21::fake_stdin::FakeStdin;
+use libaoc21::AOCDayPart;
+use std::io::Read;
 
 pub struct Part1 {
-    stdin: FakeStdin
+    stdin: FakeStdin,
 }
 
 impl Part1 {
     pub fn new(input: &str) -> Self {
         Part1 {
-            stdin: FakeStdin::new(input.as_bytes())
+            stdin: FakeStdin::new(input.as_bytes()),
         }
     }
 }
@@ -28,7 +28,7 @@ impl AOCDayPart for Part1 {
                 "forward" => pos.0 += steps,
                 "down" => pos.1 += steps,
                 "up" => pos.1 -= steps,
-                e => panic!("Invalid command: {}", e)
+                e => panic!("Invalid command: {}", e),
             }
 
             input = String::new();

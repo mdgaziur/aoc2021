@@ -1,9 +1,9 @@
 mod part1;
 mod part2;
 
-use libaoc21::{AOCDayPart, get_input_for_day_and_part, get_part};
 use crate::part1::Part1;
 use crate::part2::Part2;
+use libaoc21::{get_input_for_day_and_part, get_part, AOCDayPart};
 
 fn main() {
     let part = get_part();
@@ -12,6 +12,6 @@ fn main() {
     match part {
         1 => Part1::new(&input).solve(),
         2 => Part2::new(&input).solve(),
-        _ => panic!("Unknown part!")
+        _ => panic!("Unknown part!"),
     }
 }
