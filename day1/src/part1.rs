@@ -21,7 +21,7 @@ impl AOCDayPart for Part1 {
         let mut increased = 0;
 
         while let Ok(_) = self.stdin.read_to_string(&mut input) {
-            let depth = input.parse::<i32>().expect("Invalid input");
+            let depth = input.parse::<i16>().expect("Invalid input");
 
             if previous_depth < depth && previous_depth != -1 {
                 increased += 1;
